@@ -2,6 +2,8 @@
 
 **Lyrics in Motion.** Synchronized kinetic typography for your Spotify playback – live, in the browser, without uploading any audio.
 
+![Beattastic Preview](demo/preview.gif)
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonejanik%2Fbeattastic&env=VITE_SPOTIFY_CLIENT_ID,VITE_REDIRECT_URI&envDescription=Spotify%20Developer%20App%20credentials&envLink=https%3A%2F%2Fdeveloper.spotify.com%2Fdashboard)
 
 ---
@@ -24,7 +26,7 @@ Jeder Nutzer braucht seine eigene kostenlose Spotify-App – kein Premium erford
 ### 2. Lokal starten
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/beattastic
+git clone https://github.com/onejanik/beattastic
 cd beattastic
 cp .env.example .env
 # .env editieren: VITE_SPOTIFY_CLIENT_ID eintragen
