@@ -2,7 +2,7 @@
 
 **Lyrics in Motion.** Synchronized kinetic typography for your Spotify playback – live, in the browser, without uploading any audio.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fbeattastic&env=VITE_SPOTIFY_CLIENT_ID,VITE_REDIRECT_URI&envDescription=Spotify%20Developer%20App%20credentials&envLink=https%3A%2F%2Fdeveloper.spotify.com%2Fdashboard)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonejanik%2Fbeattastic&env=VITE_SPOTIFY_CLIENT_ID,VITE_REDIRECT_URI&envDescription=Spotify%20Developer%20App%20credentials&envLink=https%3A%2F%2Fdeveloper.spotify.com%2Fdashboard)
 
 ---
 
