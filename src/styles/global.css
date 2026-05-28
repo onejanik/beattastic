@@ -778,6 +778,15 @@ body::after {
 
 
 /* ── Legal pages ─────────────────────────────────────────── */
+
+/* Unlock scroll for the entire page when a legal page is shown */
+html:has(.legal-page),
+body:has(.legal-page),
+#root:has(.legal-page) {
+  overflow: auto;
+  height: auto;
+}
+
 .legal-page {
   min-height: 100vh;
   background: var(--bg);
