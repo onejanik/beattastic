@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { useSpotify } from '../auth/SpotifyProvider';
 import { PresetPicker } from './PresetPicker';
 import { SettingsPanel } from './SettingsPanel';
 import type { SpotifyTrack } from '../spotify/types';
@@ -16,6 +15,8 @@ interface NowPlayingBarProps {
   settings: AppSettings;
   onSettingsChange: (patch: Partial<AppSettings>) => void;
   onFullscreen: () => void;
+  /** Source-agnostic logout (Spotify or Discord) */
+  onLogout: () => void;
 }
 
 const fmt = (ms: number) => {
@@ -32,8 +33,8 @@ export function NowPlayingBar({
   settings,
   onSettingsChange,
   onFullscreen,
+  onLogout,
 }: NowPlayingBarProps) {
-  const { logout } = useSpotify();
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   const progress = track ? Math.min(1, progressMs / track.duration_ms) : 0;
@@ -137,7 +138,7 @@ export function NowPlayingBar({
         </button>
 
         {/* Disconnect */}
-        <button className="bar-icon-btn" onClick={logout} title="Trennen">
+        <button className="bar-icon-btn" onClick={onLogout} title="Trennen">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
             <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" strokeLinecap="round" strokeLinejoin="round" />
             <polyline points="16 17 21 12 16 7" strokeLinecap="round" strokeLinejoin="round" />

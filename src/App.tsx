@@ -11,6 +11,9 @@ import { PRESETS, type PresetConfig } from './engine/presets';
 import { DEFAULT_SETTINGS, type AppSettings } from './settings';
 import { useIdle } from './hooks/useIdle';
 import { useAlbumColor } from './hooks/useAlbumColor';
+import { getDiscordUser, clearDiscordUser } from './discord/discordAuth';
+import { useDiscordPlayback } from './discord/useDiscordPlayback';
+import { DiscordCallbackHandler } from './discord/DiscordCallbackHandler';
 
 // ─── Fullscreen helper ────────────────────────────────────────────────────────
 function toggleFullscreen() {
@@ -22,11 +25,17 @@ function toggleFullscreen() {
 }
 
 // ─── Main view ────────────────────────────────────────────────────────────────
-function MainView() {
+function MainView({ discordUserId }: { discordUserId: string | null }) {
   const [preset, setPreset] = useState<PresetConfig>(PRESETS[0]);
   const [settings, setSettings] = useState<AppSettings>(DEFAULT_SETTINGS);
 
-  const { track, progressMs, isPlaying, loading } = usePlaybackState();
+  // Always call both hooks (Rules of Hooks) – only the active one does network work
+  const spotifyPlayback = usePlaybackState();
+  const discordPlayback = useDiscordPlayback(discordUserId);
+
+  const { track, progressMs, isPlaying, loading } =
+    discordUserId ? discordPlayback : spotifyPlayback;
+
   const { lines, instrumental, hasSync, isLoading: lyricsLoading } = useLyrics(track);
 
   // Ambient mode: hide UI after inactivity
@@ -46,6 +55,12 @@ function MainView() {
 
   const handleSettingsChange = (patch: Partial<AppSettings>) =>
     setSettings((prev) => ({ ...prev, ...patch }));
+
+  // Source-agnostic logout
+  const { logout: spotifyLogout } = useSpotify();
+  const handleLogout = discordUserId
+    ? () => { clearDiscordUser(); window.location.reload(); }
+    : spotifyLogout;
 
   // Browser tab title – reflects what's playing even when minimised
   useEffect(() => {
@@ -109,6 +124,7 @@ function MainView() {
         settings={settings}
         onSettingsChange={handleSettingsChange}
         onFullscreen={toggleFullscreen}
+        onLogout={handleLogout}
       />
     </div>
   );
@@ -117,8 +133,11 @@ function MainView() {
 // ─── Root ─────────────────────────────────────────────────────────────────────
 export function App() {
   const { isAuthenticated, isLoading } = useSpotify();
+  const discordUser = getDiscordUser();
 
-  if (window.location.pathname === '/callback') return <CallbackHandler />;
+  // SPA routing
+  if (window.location.pathname === '/callback')         return <CallbackHandler />;
+  if (window.location.pathname === '/discord-callback') return <DiscordCallbackHandler />;
 
   if (isLoading) {
     return (
@@ -132,6 +151,6 @@ export function App() {
     );
   }
 
-  if (!isAuthenticated) return <ConnectScreen />;
-  return <MainView />;
+  if (!isAuthenticated && !discordUser) return <ConnectScreen />;
+  return <MainView discordUserId={discordUser?.userId ?? null} />;
 }

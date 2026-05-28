@@ -222,6 +222,38 @@ body::after {
   flex-shrink: 0;
 }
 
+/* Discord variant – Blurple accent */
+.connect-btn--discord {
+  border-color: #5865F2;
+  color: #5865F2;
+}
+.connect-btn--discord:hover {
+  background: #5865F2;
+  border-color: #5865F2;
+  color: #fff;
+}
+
+/* "oder" divider between the two login buttons */
+.connect-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+  color: rgba(240, 235, 227, 0.2);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.connect-divider::before,
+.connect-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(240, 235, 227, 0.1);
+}
+
 .connect-note {
   font-family: var(--mono);
   font-size: 0.72rem;
