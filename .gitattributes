@@ -1,0 +1,22 @@
+﻿# Alle Textdateien mit LF committen
+* text=auto
+
+# Shell-Skripte immer mit LF ausliefern (verhindert CRLF-Fehler auf Linux)
+*.sh        text eol=lf
+Makefile    text eol=lf
+
+# Konfigurationsdateien
+*.conf      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.toml      text eol=lf
+
+# Quellcode
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.js        text eol=lf
+*.json      text eol=lf
+*.css       text eol=lf
+*.html      text eol=lf
+*.md        text eol=lf
+*.env*      text eol=lf
