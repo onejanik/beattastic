@@ -102,7 +102,8 @@ Um die 25-Nutzer-Grenze aufzuheben:
 | Animation | Framer Motion 11 |
 | Lyrics | [LRCLib](https://lrclib.net) (kostenlos, kein Key) |
 | Farbe | Canvas-basierte Farbextraktion |
-| Auth | Spotify OAuth 2.0 PKCE (kein Backend!) |
+| Auth | Spotify OAuth 2.0 PKCE · Discord OAuth 2.0 |
+| Bot | discord.js 14, Express, WebSocket (`ws`) |
 | Fonts | Bebas Neue, Syne, JetBrains Mono |
 
 ---
@@ -114,6 +115,14 @@ Um die 25-Nutzer-Grenze aufzuheben:
 - **Dynamische Album-Farbe** – Akzentfarbe wird automatisch aus dem Cover extrahiert
 - **PWA** – als Desktop-App installierbar
 - **Kein Audio-Upload** – liest nur den Playback-State vom aktiven Gerät
+
+---
+
+## Entstehung
+
+Dieses Projekt wurde gemeinsam mit **[Cursor](https://cursor.com)** (KI-gestützter Code-Editor) entwickelt. Idee, Produktentscheidungen und Richtung kamen vom Entwickler – die KI hat bei Architektur, Implementierung und Debugging unterstützt.
+
+Wir glauben, dass Transparenz hier wichtig ist: KI als Werkzeug, Mensch als Gestalter.
 
 ---
 
