@@ -777,6 +777,121 @@ body::after {
 }
 
 
+/* ── Legal pages ─────────────────────────────────────────── */
+.legal-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.legal-content {
+  width: 100%;
+  max-width: 680px;
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(240, 235, 227, 0.4);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s;
+}
+.legal-back:hover { color: var(--text); }
+.legal-back svg { width: 16px; height: 16px; }
+
+.legal-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 2.5rem;
+  color: var(--text);
+}
+
+.legal-body h2 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 2rem 0 0.75rem;
+}
+
+.legal-body p,
+.legal-body li {
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  line-height: 1.8;
+  color: rgba(240, 235, 227, 0.7);
+  margin: 0 0 0.75rem;
+}
+
+.legal-body ul {
+  padding-left: 1.4rem;
+  margin: 0 0 0.75rem;
+}
+
+.legal-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+  transition: border-color 0.2s;
+}
+.legal-body a:hover { border-color: var(--accent); }
+
+.legal-body code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.legal-updated,
+.legal-notice {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: rgba(240, 235, 227, 0.25);
+  margin-bottom: 1.5rem !important;
+}
+
+/* ── Legal footer (ConnectScreen) ────────────────────────── */
+.legal-footer {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.legal-footer a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(240, 235, 227, 0.2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.legal-footer a:hover { color: rgba(240, 235, 227, 0.6); }
+
+.legal-footer-sep {
+  color: rgba(240, 235, 227, 0.1);
+  font-size: 0.65rem;
+}
+
 /* ── Scrollbar hide (for any overflowing elements) ───────── */
 * {
   scrollbar-width: none;

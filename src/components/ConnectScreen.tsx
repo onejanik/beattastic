@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useSpotify } from '../auth/SpotifyProvider';
 import { loginWithDiscord } from '../discord/discordAuth';
+import { LegalFooter } from './LegalFooter';
 
 const words = ['BEAT', 'TASTIC'];
 
@@ -120,6 +121,8 @@ export function ConnectScreen() {
           Kein Audio-Upload · Kein Premium erforderlich
         </motion.p>
       </div>
+
+      <LegalFooter />
     </div>
   );
 }

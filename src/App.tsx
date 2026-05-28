@@ -14,6 +14,9 @@ import { useAlbumColor } from './hooks/useAlbumColor';
 import { getDiscordUser, clearDiscordUser } from './discord/discordAuth';
 import { useDiscordPlayback } from './discord/useDiscordPlayback';
 import { DiscordCallbackHandler } from './discord/DiscordCallbackHandler';
+import { AboutPage } from './pages/AboutPage';
+import { PrivacyPage } from './pages/PrivacyPage';
+import { ImpressumPage } from './pages/ImpressumPage';
 
 // ─── Fullscreen helper ────────────────────────────────────────────────────────
 function toggleFullscreen() {
@@ -138,6 +141,9 @@ export function App() {
   // SPA routing
   if (window.location.pathname === '/callback')         return <CallbackHandler />;
   if (window.location.pathname === '/discord-callback') return <DiscordCallbackHandler />;
+  if (window.location.pathname === '/about')            return <AboutPage />;
+  if (window.location.pathname === '/datenschutz')      return <PrivacyPage />;
+  if (window.location.pathname === '/impressum')        return <ImpressumPage />;
 
   if (isLoading) {
     return (

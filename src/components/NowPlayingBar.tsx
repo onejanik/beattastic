@@ -137,6 +137,15 @@ export function NowPlayingBar({
           </svg>
         </button>
 
+        {/* About / Legal */}
+        <a href="/about" className="bar-icon-btn" title="Über Beattastic" aria-label="Über Beattastic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
+            <circle cx="12" cy="12" r="10" strokeLinecap="round" />
+            <line x1="12" y1="8" x2="12" y2="8" strokeLinecap="round" strokeWidth="2.5" />
+            <line x1="12" y1="12" x2="12" y2="16" strokeLinecap="round" />
+          </svg>
+        </a>
+
         {/* Disconnect */}
         <button className="bar-icon-btn" onClick={onLogout} title="Trennen">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
