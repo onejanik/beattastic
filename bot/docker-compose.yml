@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    container_name: beattastic-bot
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:3001:3001"   # Nur lokal erreichbar – nginx tunnelt von außen
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
